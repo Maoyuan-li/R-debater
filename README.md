@@ -28,7 +28,7 @@ It integrates retrieval, logic summarization, and generation agents into a coher
 ## ⚙️ Environment Setup
 
 ```bash
-conda create -n Conrag python=3.12
+conda create -n Conrag python=3.9
 conda activate Conrag
 pip install -r requirements.txt
 Ensure you have the following dependencies:
