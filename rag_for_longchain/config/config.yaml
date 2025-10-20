@@ -1,15 +1,9 @@
-# OpenAI 配置
 openai:
-  #api_key: ""           # 替换为有效的 OpenAI API 密钥XIAI API
-  api_key: "sk-p94mUCY5g2jvxd4i5iAReGUI0rqwd4DDP55EOGenDV2VSDNm"
-
-  api_base: "https://xdaicn.top/v1"
-  #api_base: "https://api.xi-ai.cn/v1"    # OpenAI API 基础路径
-  embedding_model: "text-embedding-ada-002" # 嵌入模型名称
-  #llm_model: "claude-3-5-haiku-20241022"               # 用于生成的语言模型
-  llm_model: "gpt-5-nano"
-  serper_api_key : "2cd2d2f6-114e-45be-810c-92cdefb56ab7"
-
+  api_key: ""
+  api_base: ""
+  llm_model: ""
+  serper_api_key : ""
+  
 backends:
     - api_key: ""
     - api_key: ""
