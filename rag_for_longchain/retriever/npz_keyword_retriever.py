@@ -18,7 +18,7 @@ import numpy as np
 import requests
 
 # ========= 固定参数（按需改成你的真实路径）=========
-NPZ_PATH = r"D:\converstional_rag\rag_for_longchain\data\processed_data\allnpz\all.npz"
+NPZ_PATH = r"D:\conversational_rag\rag_for_longchain\data\all.npz"
 
 # 每条子查询让 LLM 抽取的关键词数量（短语优先）
 PER_ITEM_K = 8
@@ -29,7 +29,7 @@ BM25_TOPK = 5
 
 # === LLM API（已写死） ===
 API_BASE = "https://www.xdaicn.top/v1"
-API_KEY = "sk-PzbRqOZZQct2jv7f5LTtTH0D19GtPKfsey74QqPkthOtJBYh"   # <<< 在此替换成你的真实 API Key
+API_KEY = "sk-p94mUCY5g2jvxd4i5iAReGUI0rqwd4DDP55EOGenDV2VSDNm"   # <<< 在此替换成你的真实 API Key
 MODEL_NAME = "gpt-4o-mini"
 TIMEOUT_SEC = 30
 MAX_RETRY = 2

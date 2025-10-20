@@ -14,7 +14,7 @@ import yaml
 
 # ======== 你的现有模块（保持不变的外部接口）========
 from rag_for_longchain.retriever.keyword_retriever import search  # <<< 改为关键词检索
-from rag_for_longchain.generator.testgen_for_pk import (
+from rag_for_longchain.generator.testgen import (
     generate_counterargument_via_api,
     load_debate_techniques
 )

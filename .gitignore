@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.log
+
+# Envs & secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Conda/venv
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Data
+rag_for_longchain/data/**/cache/
+rag_for_longchain/data/**/tmp/
+rag_for_longchain/data/output/
+*.npz
+*.npy
+
+# 🔒 建议用模板，不要提交真实密钥
+rag_for_longchain/config/config.yaml

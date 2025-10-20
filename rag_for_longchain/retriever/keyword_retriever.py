@@ -17,7 +17,7 @@ except Exception:
     from npz_keyword_retriever import NpzKeywordListRetriever, _KwAggCfg  # type: ignore
 
 # 你自己的 all.npz 路径；与 npz_keyword_retriever.py 内保持一致也可
-NPZ_PATH = r"D:\converstional_rag\rag_for_longchain\data\processed_data\allnpz\all.npz"
+NPZ_PATH = r"D:\conversational_rag\rag_for_longchain\data\all.npz"
 
 # 单例
 _retriever = None

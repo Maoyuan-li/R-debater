@@ -18,12 +18,12 @@ from urllib.parse import urljoin
 from requests.adapters import HTTPAdapter, Retry
 
 # ===== 路径（按你现有工程保持不变，可自行修改） =====
-CONFIG_FILE = r"D:/converstional_rag/rag_for_longchain/config/config.yaml"
-DEBATE_TECHNIQUES_FILE = r"D:/converstional_rag/rag_for_longchain/utils/debate_techniques.json"
+CONFIG_FILE = r"../config/config.yaml"
+DEBATE_TECHNIQUES_FILE = r"../utils/debate_techniques.json"
 
 # 固定测试文件路径（保留你的写死路径）
 TEST_FILE_PATH = (
-    r"D:\converstional_rag\23acldata\input_data\LLM实验测试\“约辩”第一场厦门大学vs马来亚大学_超能力是_不是人类社会的灾难\“约辩”第一场厦门大学vs马来亚大学_超能力是_不是人类社会的灾难.json"
+    r"D:\conversational_rag\rag_for_longchain\data\processed_input\“约辩”第三场澳洲国立大学vs新加坡国立大学_坚持追求真爱是_不是理智的行为\“约辩”第三场澳洲国立大学vs新加坡国立大学_坚持追求真爱是_不是理智的行为.json"
 )
 
 # =========================

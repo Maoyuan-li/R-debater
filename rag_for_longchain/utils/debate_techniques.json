@@ -1,66 +1,66 @@
 {
   "举例论证": {
-    "辩论方法": "举例论证",
-    "定义": "举例论证是一种通过具体案例来支持普遍性结论的推理模式。该方法假设某一个体或事件所呈现的属性具备代表性，进而推广至所有类似情形。然而，该推理的有效性依赖于案例是否能真实反映普遍情形。本方法同时容许对个案局限性进行检验，从而对对方论证的代表性假设予以质疑。",
-    "场景背景": "在政策评价或伦理辩论中，论证者常以具体实例作为支持论点的证据，证明某一措施在特定条件下具有正面效果；但反方可通过揭示案例在其他情境下不适用，进而削弱普遍推广的合理性。",
-    "示例文本": "您方引用的城市数据固然证明了政策在该区域的有效性，但该数据未能涵盖农村地区，因而无法证明政策对整个国家均适用。",
-    "分析过程": "本技巧首先基于归纳推理，假定个案中的属性具有普适性；随后，通过对案例局限性的逻辑审视，指出归纳推理所隐含的代表性前提可能不成立，从而削弱对方论证结构的逻辑严密性。",
-    "输出样例": "辩论技巧：举例论证\n逻辑依据：揭示个案代表性不成立，进而否定普遍化结论的合理性。"
+    "辩论方法": "Example-Based Argumentation",
+    "定义": "Example-based argumentation is a reasoning pattern that supports a general conclusion through concrete cases. It assumes that the properties shown by an individual or event are representative and can be generalized to similar situations. However, the validity of this reasoning depends on whether the case truly reflects the general situation. This method also allows examination of the limitations of the case, thereby challenging the opponent’s assumption of representativeness.",
+    "场景背景": "In policy evaluation or ethical debates, advocates often use specific examples as evidence to support a claim, showing that a measure has positive effects under certain conditions; the opposing side may weaken the legitimacy of generalization by revealing that the case does not apply in other contexts.",
+    "示例文本": "While the city-level data you cited does demonstrate the policy’s effectiveness in that region, it fails to cover rural areas and therefore cannot prove the policy applies nationwide.",
+    "分析过程": "This technique begins with inductive reasoning, presuming that the properties in a specific case are universal; it then scrutinizes the case’s limitations to show that the underlying representativeness assumption of the induction may not hold, thereby weakening the logical rigor of the opponent’s argument structure.",
+    "输出样例": "Debate technique: Example-Based Argumentation\nLogical basis: Expose the failure of case representativeness to undermine the legitimacy of a generalized conclusion."
   },
   "价值论证": {
-    "辩论方法": "价值论证",
-    "定义": "价值论证依托对伦理或道德核心价值的认定，主张某一行为、政策或观点是否符合特定价值体系。其逻辑核心在于确认价值判断标准，并根据这一标准评价行为的正当性或合理性。",
-    "场景背景": "在多元价值冲突的辩论中，各方通常依据不同的道德标准或价值取向进行论证。通过权衡各价值间的优先级和内在逻辑，可以构建起论证的基石。",
-    "示例文本": "尽管经济发展至关重要，但环境保护作为可持续发展的基础，应当优先考虑，从而确保长远的社会福祉。",
-    "分析过程": "本方法在论证中首先明确核心价值标准，接着通过逻辑推演界定不同价值之间的内在联系，并在此基础上论证某一行为符合或违背这一标准，从而论证其合理性。",
-    "输出样例": "辩论技巧：价值论证\n逻辑依据：基于核心价值体系的判断，构建正当性与合理性的逻辑推演。"
+    "辩论方法": "Value-Based Argumentation",
+    "定义": "Value-based argumentation relies on identifying core ethical or moral values to argue whether a behavior, policy, or viewpoint aligns with a particular value system. Its logical core is to establish the evaluative standard and assess the legitimacy or rationality of the behavior accordingly.",
+    "场景背景": "In debates involving conflicts among plural values, each side typically argues from different moral standards or value orientations. By weighing the priorities and internal logic among values, one can construct the foundation of the argument.",
+    "示例文本": "Although economic development is crucial, environmental protection—being the foundation of sustainability—should take priority to ensure long-term societal well-being.",
+    "分析过程": "This method first clarifies the core value standard, then, through logical reasoning, articulates the internal relationships among different values, and on that basis argues that a behavior conforms to or violates the standard, thereby establishing its legitimacy.",
+    "输出样例": "Debate technique: Value-Based Argumentation\nLogical basis: Build a chain of justification grounded in a core value system to argue legitimacy and rationality."
   },
   "专家意见论证": {
-    "辩论方法": "专家意见论证",
-    "定义": "专家意见论证强调借助权威论述、专业知识及相关领域专家的观点，以证明某一前提或结论的合理性。在此过程中，通过对关键词及概念的重新诠释，使得原本中性的陈述获得权威支持。",
-    "场景背景": "在学术或专业领域的辩论中，对某一专业问题的争论往往需要引入专家观点。利用权威论据可以提高论证的可信度，并在逻辑上加强论点的合理性。",
-    "示例文本": "正如知名心理学专家所指出的，‘生气’作为情绪表达，其合理性在于它可以激发社会正义感，因此不能简单视为负面情绪。",
-    "分析过程": "该技巧首先引入专家或权威机构的论述，通过重新构造关键词的语义内涵，赋予论据更高的信度；然后以专家意见为基础，建立逻辑推论链，从而论证当前观点的正确性。",
-    "输出样例": "辩论技巧：专家意见论证\n逻辑依据：基于权威专家陈述，强化论证的逻辑链和说服力。"
+    "辩论方法": "Appeal to Expert Opinion",
+    "定义": "Appeal to expert opinion emphasizes the use of authoritative statements, domain expertise, and expert views to justify the reasonableness of a premise or conclusion. During the process, by reframing key terms and concepts, otherwise neutral statements gain authoritative support.",
+    "场景背景": "In academic or professional debates, disputes over specialized issues often require introducing expert viewpoints. Using authoritative evidence can increase credibility and strengthen the logical soundness of the argument.",
+    "示例文本": "As noted by a renowned psychology expert, ‘anger’ as an emotional expression can, in some contexts, inspire a sense of social justice; therefore, it should not be dismissed as a purely negative emotion.",
+    "分析过程": "This technique first introduces statements from experts or authoritative institutions, reconstructs the semantic connotations of key terms to enhance evidential credibility, and then builds a logical inference chain based on expert opinion to justify the current view.",
+    "输出样例": "Debate technique: Appeal to Expert Opinion\nLogical basis: Leverage authoritative expert statements to reinforce the logical chain and persuasiveness of the argument."
   },
   "正面后果论证": {
-    "辩论方法": "正面后果论证",
-    "定义": "正面后果论证以展示行为或决策所产生的积极结果为基础，通过逻辑推演证明该行为的正当性。该方法侧重于将预期的良好效应与论点联系起来，从而使论证更为直观且具有说服力。",
-    "场景背景": "在法律改革或政策评价等辩论中，论证者常通过对比历史进展与现实效果，展现现代制度或措施带来的正面改变。",
-    "示例文本": "现代法律体制通过多方协作制定法律，不仅确保了权力的有效监督，也大大促进了社会公平和正义。",
-    "分析过程": "本方法利用历史对比和实证数据，逻辑上推导出制度改革带来的正面效果，并以此作为论证依据；通过正面后果链条证明观点的合理性和进步性。",
-    "输出样例": "辩论技巧：正面后果论证\n逻辑依据：通过正向因果链展示改革效应，论证当前措施的合理性。"
+    "辩论方法": "Positive Consequence Argumentation",
+    "定义": "Positive consequence argumentation justifies a behavior or decision by presenting its beneficial outcomes and linking expected positive effects to the claim through logical reasoning, thereby making the argument more intuitive and persuasive.",
+    "场景背景": "In debates on legal reform or policy evaluation, advocates often contrast historical developments with current outcomes to highlight positive changes brought about by modern systems or measures.",
+    "示例文本": "A modern legal system—developed through multi-party collaboration—has not only ensured effective checks on power but also significantly advanced social fairness and justice.",
+    "分析过程": "This method employs historical comparison and empirical data to logically derive the positive effects of institutional reform and uses this as the basis of argumentation; it establishes a chain of positive consequences to demonstrate the reasonableness and progressiveness of the viewpoint.",
+    "输出样例": "Debate technique: Positive Consequence Argumentation\nLogical basis: Demonstrate reform effects through a forward causal chain to justify the current measure."
   },
   "因果论证": {
-    "辩论方法": "因果论证",
-    "定义": "因果论证通过建立明确的因果关系，即证明某一前提必然或高度可能引起特定结果，从而在逻辑上支撑论点的合理性。该方法的核心在于验证因果链条的连贯性和合理性。",
-    "场景背景": "在科技、政策或伦理辩论中，争论通常涉及因果关系的阐释，例如技术进步与社会效应之间的联系；论证者需要论证前提与结论之间的必然联系。",
-    "示例文本": "技术进步如果未能有效监管，将不可避免地引发隐私泄露等伦理风险，从而对社会造成负面影响。",
-    "分析过程": "辩手通过逻辑推演和因果链条的构建，验证前提与结论之间的必然联系；同时，对可能存在的隐含前提进行批判性剖析，以质疑对方因果链的合理性。",
-    "输出样例": "辩论技巧：因果论证\n逻辑依据：通过逻辑推演建立前提与结果之间的因果联系，验证论证严谨性。"
+    "辩论方法": "Causal Argumentation",
+    "定义": "Causal argumentation establishes a clear cause–effect relationship—namely, that a given premise necessarily or highly likely leads to a specific outcome—to support the rationality of the claim. Its core lies in verifying the coherence and plausibility of the causal chain.",
+    "场景背景": "In debates on technology, policy, or ethics, disputes often involve articulating causal relationships, such as the link between technological advancement and social effects; the advocate needs to demonstrate the necessary connection between premise and conclusion.",
+    "示例文本": "If technological progress is not effectively regulated, it will inevitably lead to ethical risks such as privacy breaches, thereby negatively impacting society.",
+    "分析过程": "The debater constructs and examines a causal chain to validate the necessary connection between premise and conclusion, while critically analyzing hidden premises to challenge the plausibility of the opponent’s causal chain.",
+    "输出样例": "Debate technique: Causal Argumentation\nLogical basis: Establish a cause–effect link between premise and outcome through logical reasoning to validate argumentative rigor."
   },
   "备选论证": {
-    "辩论方法": "备选论证",
-    "定义": "备选论证涉及呈现多种可行方案，并通过比较分析证明其中某一方案在综合性和合理性上具有优势。该方法的逻辑推理基础在于对各备选项进行多维度权衡，形成有力的决策支持论证。",
-    "场景背景": "在公共政策或资源配置辩论中，论证者常需要权衡不同方案的利弊，从而论证其所提方案的优越性。",
-    "示例文本": "比较化石能源与风能、太阳能等替代能源，在长期经济效益和环境影响上，后者表现出明显优势。",
-    "分析过程": "辩手通过对不同方案的数据、逻辑与后果进行全方位比较，构建论证支撑体系；重点在于揭示各方案在逻辑结构上的优缺点，从而论证备选方案的合理性。",
-    "输出样例": "辩论技巧：备选论证\n逻辑依据：通过多方案比较，证明所提方案在综合评价下具有最佳合理性。"
+    "辩论方法": "Alternative-Options Argumentation",
+    "定义": "Alternative-options argumentation presents multiple feasible plans and, through comparative analysis, demonstrates that one plan is superior in overall soundness and rationality. The logical foundation lies in multi-dimensional trade-offs among options to build a strong decision-making argument.",
+    "场景背景": "In public policy or resource-allocation debates, advocates often need to weigh the pros and cons of different plans to argue for the superiority of their proposal.",
+    "示例文本": "Comparing fossil fuels with alternatives such as wind and solar energy, the latter show clear advantages in long-term economic returns and environmental impact.",
+    "分析过程": "The debater conducts a comprehensive comparison of data, logic, and consequences across options to construct an argumentative support system, focusing on revealing each plan’s structural strengths and weaknesses to argue the proposed alternative’s rationality.",
+    "输出样例": "Debate technique: Alternative-Options Argumentation\nLogical basis: Demonstrate, via multi-option comparison, that the proposed plan achieves the best overall rationality."
   },
   "负面后果论证": {
-    "辩论方法": "负面后果论证",
-    "定义": "负面后果论证通过推导对方观点可能导致的严重负面效应，来反证该观点的不可行性。其逻辑基础在于将论证推向极端，证明如果接受对方前提将引发荒谬或不可接受的结果。",
-    "场景背景": "在关于风险管理或伦理决策的辩论中，论证者通过逻辑演绎展示对方观点所可能引发的极端后果。",
-    "示例文本": "假设我们采纳‘越难越好’的观点，那么连高风险的跳楼挑战也将被视为合理，这显然违背了基本的安全常识。",
-    "分析过程": "辩手首先假设对方观点为真，然后沿着逻辑链条推演出极端负面结果；通过对这一逻辑链条中关键节点进行批判性分析，证明其内在矛盾和不可接受性。",
-    "输出样例": "辩论技巧：负面后果论证\n逻辑依据：通过逻辑极端化推演，揭示对方论证导致的不合理后果。"
+    "辩论方法": "Negative Consequence Argumentation (Reductio-style)",
+    "定义": "Negative consequence argumentation derives severe adverse effects that may result from the opponent’s view to refute its feasibility. Its logical basis is to push the argument toward extremes, showing that accepting the opponent’s premise would lead to absurd or unacceptable outcomes.",
+    "场景背景": "In debates about risk management or ethical decision-making, advocates use deductive reasoning to illustrate extreme consequences likely to follow from the opponent’s position.",
+    "示例文本": "If we adopt the view that ‘the harder the better,’ even high-risk ‘jumping off a building’ challenges could be deemed reasonable—an outcome that clearly violates basic safety common sense.",
+    "分析过程": "The debater first assumes the opponent’s claim is true, then extends the logic to an extreme negative result; by critically examining key nodes in this chain, the debater reveals internal contradictions and the position’s unacceptability.",
+    "输出样例": "Debate technique: Negative Consequence Argumentation\nLogical basis: Use extreme logical extension to expose unreasonable outcomes entailed by the opponent’s argument."
   },
   "类比论证": {
-    "辩论方法": "类比论证",
-    "定义": "类比论证通过比较具有相似逻辑结构的两个情境，推导出两者在关键属性上的一致性，从而为论点提供支持。该方法的逻辑推理基础在于识别和验证不同情境之间的共性。",
-    "场景背景": "在公共政策或社会改革辩论中，论证者通过引用国外或其他领域成功案例，证明在类似结构下己方论点的合理性。",
-    "示例文本": "正如X国在推行这一政策后实现了显著发展，若在本国情境下适当调整，该政策同样能促进社会进步。",
-    "分析过程": "辩手首先识别两个案例或情境之间的逻辑共性，然后通过类比推理推导出相似的结论；关键在于验证类比过程中关键条件的一致性，确保论证逻辑的严谨性。",
-    "输出样例": "辩论技巧：类比论证\n逻辑依据：通过对相似情境的类比验证，证明论点的普适性和合理性。"
+    "辩论方法": "Analogical Argumentation",
+    "定义": "Analogical argumentation supports a claim by comparing two situations with similar logical structure and inferring consistency in key properties. Its logical foundation lies in identifying and validating commonalities across contexts.",
+    "场景背景": "In public policy or social reform debates, advocates cite successful cases from other countries or domains to show that, under similar structures, their claim is reasonable.",
+    "示例文本": "Just as Country X achieved significant development after implementing this policy, with suitable adjustments in our context the same policy can likewise promote social progress.",
+    "分析过程": "The debater first identifies logical commonalities between two cases or contexts, then infers similar conclusions through analogical reasoning; the key is verifying the consistency of critical conditions in the analogy to ensure logical rigor.",
+    "输出样例": "Debate technique: Analogical Argumentation\nLogical basis: Validate the claim’s generality and rationality through analogy across similar contexts."
   }
 }
