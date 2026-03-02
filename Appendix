@@ -1,0 +1,712 @@
+Since the camera-ready version requires that it not contain any appendixes, we put our appendixes in our repository.
+Apendix for R-debater
+
+\appendix
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+\appendix
+% Requires in preamble: \usepackage[most]{tcolorbox}
+\section{Case Demonstration of the Logic \& Summarization Agent}
+\label{app:logic_case}
+
+This appendix presents a concrete, end-to-end example of our three-step pipeline. 
+Given an opponent's debate statement, we first extract pseudo-first-order predicates $\mathcal{P}_{\text{opp}}$, then derive a natural-language reasoning chain $\tau_{\text{opp}}$, and finally identify logical flaws $\mathcal{L}$.
+
+% =========================
+% Input Speech
+% =========================
+\begin{tcolorbox}[
+  colback=gray!3!white,
+  colframe=black!70!white,
+  title={Input: Opponent Debate Statement (Excerpt)},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Debate Topic:} Has globalization accelerated or slowed in the post-pandemic era?
+
+Con. However, the pandemic has not accelerated globalization; rather, it has disrupted it. The outbreak of COVID-19 nearly halted global economic interactions. Variants spread rapidly in the UK and Germany, while Australia and Malaysia returned to lockdowns. Such disruptions affected people’s lives and forced governments to reassess the impact of globalization.
+Data prove this trend: since 2019, global trade dependence has decreased by seven percentage points, whereas it had only decreased by four points over the entire twelve years preceding the pandemic. Foreign direct investment dropped by 38\% due to COVID-19 and remains 25\% below previous levels. Even in 2021, supposedly the ``post-pandemic era,'' indicators continue to decline.
+Nations are also adjusting their strategies. President Biden’s American Jobs Plan emphasizes rebuilding domestic supply chains and ensuring Americans ``buy American.'' China’s 14th Five-Year Plan stresses domestic circulation as the core. The pandemic exposed the fragility of over-reliance on global supply chains, prompting governments to turn inward. Moreover, public distrust has grown---polls show that 73\% of respondents believe China should be held responsible for the pandemic, which reduces willingness for international cooperation. Thus, globalization is slowing, not accelerating.
+
+Con. Yet your example of China actually supports our view. China controlled the pandemic well, so its trade grew. But in countries like the UK, Europe, and India---where control failed---borders closed and trade declined. Overall, global trade is still down. The WTO predicts that even by 2022, trade volumes will remain below 2019 levels.
+You stress cross-border e-commerce, but this existed before COVID; the pandemic only temporarily amplified it. As for digital supply chains, they are still in their infancy, and there is no long-term evidence they can reverse the slowdown of globalization.
+More importantly, the pandemic revealed the necessity of reshoring critical industries. When masks were seized and vaccine production stalled, nations realized that so-called ``risk diversification'' meant leaving eggs in someone else’s basket. In contrast, reshoring ensures essential goods stay secure. That is why industrial reshoring policies---whether in healthcare, steel, or other strategic sectors---are rising worldwide. Globalization, therefore, is not accelerating but rather facing a cautious retreat.
+\end{tcolorbox}
+
+% =========================
+% Step 1: Predicate Set
+% =========================
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Step 1: Predicate Extraction Result $\;(\mathcal{P}_{\text{opp}})$},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+PredicateSet = \{
+  Disrupts(Pandemic, Globalization),
+  NearlyHalts(Pandemic, GlobalEconomicInteractions),
+  SpreadVariants(\{UK, Germany\}),
+  Lockdowns(\{Australia, Malaysia\}),
+  Decrease(TradeDependence, since2019, 7pp),
+  Decrease(TradeDependence, pre2019\_12y, 4pp),
+  Decrease(FDI, Pandemic, 38\%),
+  BelowBaseline(FDI, Current, 25\%),
+  ContinuesDecline(Indicators, 2021),
+  Emphasizes(AmericanJobsPlan, DomesticSupplyChains \& BuyAmerican),
+  Emphasizes(China14FYP, DomesticCirculation),
+  Reveals(Pandemic, Fragility(GlobalSupplyChains)),
+  Increases(PublicDistrust, Pandemic),
+  Blames(Public, China, 73\%),
+  Concludes(Overall, GlobalizationSlowing),
+  Notes(ChinaTrade, GrewUnderGoodControl),
+  Notes(\{UK, Europe, India\}, BordersClosed \& TradeDeclined),
+  Predicts(WTO, TradeVolumeBelow(2022, 2019)),
+  Claims(CrossBorderEcommerce, PreExisted \& TemporarilyAmplified),
+  Claims(DigitalSupplyChains, EarlyStage \& InsufficientEvidenceLongTermReversal),
+  Advocates(Reshoring, CriticalIndustries),
+  MotivatedBy(Reshoring, SecurityOfEssentialGoods),
+  Observes(ReshoringPoliciesRising, \{Healthcare, Steel, StrategicSectors\})
+\}
+\end{tcolorbox}
+
+% =========================
+% Step 2: Reasoning Chain
+% =========================
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Step 2: Natural-Language Reasoning Chain $\;(\tau_{\text{opp}})$},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+ReasoningChain = """
+The opponent argues that the pandemic disrupted globalization, as evidenced by halted interactions, renewed lockdowns, and the spread of variants across multiple countries. 
+They further claim that quantitative indicators confirm a slowdown: global trade dependence fell by 7 percentage points since 2019 (compared with only 4 points in the prior twelve years), FDI dropped by 38\% and remains 25\% below previous levels, and key indicators continued to decline in 2021.
+Policy responses are presented as consistent with de-globalization: the American Jobs Plan promotes domestic supply chains and Buy American, while China's 14th Five-Year Plan stresses domestic circulation. 
+The pandemic is said to reveal global supply-chain fragility, increasing public distrust (73\% blaming China), which purportedly reduces willingness for international cooperation. 
+Even if some economies (e.g., China) sustained or grew trade under effective control, the opponent maintains that overall global trade remains below 2019 levels, citing a WTO prediction that 2022 trade volume would still be lower than in 2019.
+They contend that cross-border e-commerce predated COVID and was only temporarily amplified, and that digital supply chains are nascent without long-term evidence of reversing the slowdown. 
+From the security perspective, they argue that shortages and seizures during the pandemic justify reshoring in critical sectors; the observed rise of reshoring policies is then taken as a sign of a broader, cautious retreat from globalization. 
+Hence, the conclusion is that globalization is slowing rather than accelerating.
+"""
+\end{tcolorbox}
+
+% =========================
+% Step 3: Logical Flaws
+% =========================
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Step 3: Detected Logical Flaws $\;(\mathcal{L})$},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+LogicalFlaws = \{
+  "Temporal Scope Ambiguity: The argument mixes short-term shock (lockdowns, 2020--2021 contractions) with a long-term trend claim ('globalization is slowing') without clearly separating transient effects from persistent structural change.",
+  "Selective Quantification: Declines in FDI and trade dependence are emphasized, but the chain does not examine heterogeneity across regions/sectors (e.g., China trade growth) and whether rebounds or offsetting channels (services, digital trade) exist.",
+  "Causal Leap: Public distrust (73\% blaming China) is treated as directly reducing international cooperation, but the mechanism is not specified (policy channels, durations, or countervailing incentives).",
+  "Equivocation Between Reshoring and Deglobalization: Reshoring in critical sectors is taken as general evidence of global retreat, yet partial risk rebalancing can co-exist with continued cross-border integration elsewhere.",
+  "Status-Quo Comparison: The claim that 2022 trade volumes remain below 2019 is used to infer a slowdown, but no baseline for expected recovery, cyclical adjustment, or substitution effects is provided.",
+  "Persistence Assumption: The narrative assumes that amplified cross-border e-commerce and digital supply-chain adoption are temporary, without engaging with data that could indicate durable post-shock adoption."
+\}
+\end{tcolorbox}
+
+\section{Prompts for Scheme Annotation Agent}
+
+The following prompts describe various argumentative schemes that the Scheme Annotation Agent utilizes during debate annotation and analysis. Each scheme is defined with its method, definition, scenario, example, analytical process, and sample output.
+
+% === Instruction & Input Template (Agent role + how to use) ===
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Instruction \& Input Template for the Scheme Annotation Agent},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+You are the \textbf{Scheme Annotation Agent}. Your task is to read a single debate utterance and, using the scheme definitions below, label all argumentation schemes that appear in the utterance (multi-label is allowed).
+\\
+
+Allowed scheme names (use exactly these as JSON keys) and their descriptions:\\
+\{[SCHEME LIST]\}
+
+Argumentation Scheme Details: \\
+\{[SCHEME DESCRIPTIONS]\}
+\\
+
+What to output: \\
+Return a single JSON object where each present scheme is a key and the value is an object with a concise English explanation under the field \texttt{"reason"} that cites the evidence from the utterance (no more than 40 words per reason). Do not invent new scheme names.
+\\
+
+Formatting rules:\\
+1) Output only raw JSON (no extra text, no Markdown fences, no trailing commas). \\
+2) If no scheme is found, output \texttt{\{\}}. \\
+3) Reasons must be in English and refer to the utterance content. \\
+4) If multiple schemes appear, include all of them as separate keys.
+\\
+
+Expected JSON format:\\
+\{ \\
+\ \ \ "Example-Based Argumentation": \{"reason": "Points to a specific case to generalize the conclusion."\}, \\
+\ \ \ "Causal Argumentation": \{"reason": "Claims X leads to Y via an explicit cause-effect link."\} \\
+\}
+\\
+
+Utterance to annotate: \\
+\{[USER INPUT]\}
+\\
+
+
+\end{tcolorbox}
+
+The following argumentation schemes were selected and used in our experiments.
+
+1. Example-Based Argumentation
+
+% === Scheme definitions ===
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Example-Based Argumentation},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Definition}: This scheme supports a general conclusion through specific cases. 
+It assumes that the attributes of an individual or event are representative and can be generalized to similar situations. 
+Its validity depends on whether the case truly reflects the broader situation. 
+It also allows questioning the representativeness of the opponent’s case. \\
+Scenario: Common in policy evaluation or ethical debates, where a debater cites specific instances to support claims. 
+The opponent may challenge the applicability in different contexts. \\
+
+\textbf{Example:} ``Although your city-level data shows the policy is effective, it does not cover rural areas, hence it cannot prove nationwide applicability.'' \\
+\textbf{Analytical Process:} Based on inductive reasoning, assuming case universality, followed by examining case limitations to challenge the logical rigor of the argument. \\
+\textbf{Sample Output:} Argumentative Technique: Example-Based Argumentation. 
+Logical Basis: Reveals that case representativeness does not hold, invalidating generalization.
+\end{tcolorbox}
+
+2. Value-Based Argumentation
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Value-Based Argumentation},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Definition:} This scheme relies on ethical or moral core values to assess whether a policy, behavior, or opinion conforms to a particular value system. Its logic centers on identifying value standards and evaluating legitimacy accordingly. \\
+\textbf{Scenario:} In debates involving value conflicts, debaters argue from differing moral standards and value orientations, weighing priorities to build reasoning. \\
+
+\textbf{Example:} ``Although economic growth is important, environmental protection must take precedence as the foundation of sustainable development for long-term welfare.'' \\
+\textbf{Analytical Process:} First, clarify the core value(s); then link competing values with clear priority ordering to argue for or against compliance. \\
+\textbf{Sample Output:} Argumentative Technique: Value-Based Argumentation. Logical Basis: Constructs legitimacy reasoning from core values and their priority.
+\end{tcolorbox}
+
+3. Expert Opinion Argumentation
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Expert Opinion Argumentation},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Definition:} This scheme uses expert statements, professional knowledge, and recognized authority to validate premises or conclusions, often by clarifying key concepts to strengthen credibility. \\
+\textbf{Scenario:} In academic, technical, or professional debates, expert viewpoints bolster trust and reliability. \\
+
+\textbf{Example:} ``As a renowned psychologist noted, anger can trigger a sense of justice and thus should not be dismissed as merely negative.'' \\
+\textbf{Analytical Process:} Introduce a qualified expert, establish domain relevance and independence, clarify key terms, and connect the expert claim to the conclusion with warranted backing. \\
+\textbf{Sample Output:} Argumentative Technique: Expert Opinion Argumentation. Logical Basis: Strengthens reasoning through authoritative, domain-relevant support.
+\end{tcolorbox}
+
+
+4. Positive Consequence Argumentation
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Positive Consequence Argumentation},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Definition:} This scheme justifies an action or policy by emphasizing its beneficial outcomes, making the argument intuitive and persuasive via demonstrated gains. \\
+\textbf{Scenario:} In law reform or policy evaluation, debaters highlight historical progress or present benefits to justify adoption or continuation. \\
+
+\textbf{Example:} ``The modern legal system ensures power supervision and promotes fairness and justice.'' \\
+\textbf{Analytical Process:} Marshal empirical evidence and historical comparisons to show a credible pathway from action to desirable effects; address feasibility and scope. \\
+\textbf{Sample Output:} Argumentative Technique: Positive Consequence Argumentation. Logical Basis: Demonstrates rationality through a credible positive causal chain.
+\end{tcolorbox}
+
+5. Causal Argumentation
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Causal Argumentation},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Definition:} Establishes a clear causal relation, arguing that a premise inevitably or with high likelihood leads to a result; focuses on the coherence and plausibility of the causal chain. \\
+\textbf{Scenario:} In technology, policy, or ethics debates, causal links are frequently contested. \\
+
+\textbf{Example:} ``Without regulation, technological advances will inevitably cause privacy violations, harming society.'' \\
+\textbf{Analytical Process:} Specify mechanisms, conditions, and intermediaries; test for alternative causes and hidden assumptions; evaluate necessity/sufficiency. \\
+\textbf{Sample Output:} Argumentative Technique: Causal Argumentation. Logical Basis: Validates rigor through explicitly articulated and tested causal links.
+\end{tcolorbox}
+
+6. Negative Consequence Argumentation
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Negative Consequence Argumentation},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Definition:} Refutes an opponent’s standpoint by deriving unacceptable or extreme negative consequences from it, thereby challenging its plausibility or desirability. \\
+\textbf{Scenario:} Used in risk management or ethical debates to highlight dangers of adopting the opponent’s premise or policy. \\
+
+\textbf{Example:} ``If we accept the idea that ‘the harder, the better’, then even dangerous activities like rooftop jumps would be justified, which is absurd.'' \\
+\textbf{Analytical Process:} Assume the opponent’s premise, project it along a plausible path to extreme or harmful outcomes, and expose contradictions or rule violations. \\
+\textbf{Sample Output:} Argumentative Technique: Negative Consequence Argumentation. Logical Basis: Reveals absurd or harmful outcomes entailed by the opponent’s logic.
+\end{tcolorbox}
+
+7. Analogical Argumentation
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Analogical Argumentation},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Definition:} Supports a conclusion by appealing to similarity between two situations with comparable logical structure, contingent on verified shared properties. \\
+\textbf{Scenario:} In public policy or social reform debates, speakers cite cross-domain or cross-country cases to suggest transferable solutions. \\
+
+\textbf{Example:} ``Just as country X achieved progress after adopting this policy, it can also promote development here with appropriate adjustments.'' \\
+\textbf{Analytical Process:} Identify the base and target cases, establish relevant commonalities, check disanalogies, and infer a parallel conclusion with stated limits. \\
+\textbf{Sample Output:} Argumentative Technique: Analogical Argumentation. Logical Basis: Validates universality and rationality via warranted analogy.
+\end{tcolorbox}
+
+
+\section{Prompts for Scoring Agent}
+
+The following prompts describe how the Scoring Agent evaluates the quality of scheme usage in debate utterances. Each dimension of evaluation is defined with its criteria, scenario, example, analytical process, and sample output.
+
+% === Instruction & Input Template (Agent role + how to use) ===
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Instruction \& Input Template for the Scoring Agent},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+You are the \textbf{Scoring Agent}. Your task is to read a single debate utterance and, for each annotated scheme, assign a quality label from the set:
+\{poor, general, good, excellent\}. If the scheme is not used, output \texttt{none}.
+\\
+
+Evaluation focuses on four key dimensions:\\
+1) Acceptability \\
+2) Inference \& Defeasibility \\
+3) Relevance \\
+4) Robustness \& Rhetorical Clarity \\
+\\
+What to output: \\
+Return a single JSON object where each scheme is a key and the value is an object with dimension-level scores. Scores must be one of \{poor, general, good, excellent, none\}.
+\\
+
+Formatting rules:\\
+1) Output only raw JSON (no extra text, no Markdown fences, no trailing commas). \\
+2) If no scheme is used, output \{\}. \\
+3) Reasons must be in English and cite the utterance content concisely. \\
+4) Each scheme is evaluated independently with four dimensions.
+\\
+
+Expected JSON format:\\
+\{ \\
+\ \ \ "Causal Argumentation": \{"Acceptability": "good", "Inference": "excellent", "Relevance": "good", "Defeasibility": "general"\}, \\
+\ \ \ "Expert Opinion Argumentation": \{"Acceptability": "excellent", "Inference": "good", "Relevance": "good", "Defeasibility": "good"\} \\
+\}
+\\
+
+Utterance to evaluate: \\
+\{[SCHEME ANNOTATION AGENT OUTPUT]\}
+\\
+\end{tcolorbox}
+
+% === Dimension Definitions ===
+
+The following are the definitions of dimensions:
+
+1. Acceptability
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Acceptability},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Definition:} Judges whether the premises and assumptions are credible and contextually defensible. \\
+\textbf{Scenario:} Used when a debater relies on explicit or implicit premises to support reasoning. \\
+
+\textbf{Example:} ``Government data shows rising pollution levels, so regulation is urgent.'' \\
+\textbf{Analytical Process:} Examine the trustworthiness of data and assumptions; weak or anecdotal evidence reduces acceptability. \\
+\textbf{Sample Output:} Acceptability: good. Premises are factual, plausible, and contextually relevant.
+\end{tcolorbox}
+
+2. Inference \& Defeasibility
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Inference \& Defeasibility},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Definition:} Evaluates whether the reasoning follows the canonical pattern of the scheme and respects its defeasible nature. \\
+\textbf{Scenario:} In causal or expert opinion schemes, check if the reasoning anticipates critical questions. \\
+
+\textbf{Example:} ``Without regulation, new technology will inevitably cause privacy risks.'' \\
+\textbf{Analytical Process:} Test whether reasoning is overly deductive, ignores exceptions, or misuses the scheme. \\
+\textbf{Sample Output:} Inference: good. Reasoning is consistent with the scheme and addresses counterpoints.
+\end{tcolorbox}
+
+3. Relevance
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Relevance},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Definition:} Assesses whether the chosen scheme truly fits the reasoning pattern and conclusion. \\
+\textbf{Scenario:} In analogical or value-based schemes, check if the cited case or value is truly pertinent. \\
+
+\textbf{Example:} ``Like country X, we should adopt universal healthcare policies.'' \\
+\textbf{Analytical Process:} Identify if reasoning aligns with the intended scheme or introduces irrelevant elements. \\
+\textbf{Sample Output:} Relevance: excellent. The argument closely aligns with the scheme's purpose.
+\end{tcolorbox}
+
+4. Robustness \& Rhetorical Clarity
+
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Robustness \& Rhetorical Clarity},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Definition:} Measures resilience to objections and clarity of delivery. \\
+\textbf{Scenario:} When arguments risk collapse under counterexamples or unclear phrasing. \\
+
+\textbf{Example:} ``If we follow your logic, absurd actions like reckless stunts would be justified.'' \\
+\textbf{Analytical Process:} Evaluate ability to anticipate counterarguments and maintain persuasive coherence. \\
+\textbf{Sample Output:} Robustness: general. Argument is somewhat clear but vulnerable to objections.
+\end{tcolorbox}
+
+% === Few-shot Examples ===
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Few-Shot Exemplars},
+  fonttitle=\sffamily,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\textbf{Good Example 1:} \\
+Utterance: ``Because decades of industrial pollution have led to elevated disease rates in neighboring towns, we must adopt stricter environmental regulations now.'' \\
+Evaluation: Acceptability: good; Inference: good; Relevance: excellent; Robustness: good. \\
+
+\textbf{Good Example 2:} \\
+Utterance: ``Many nations with universal healthcare report better outcomes; adopting a similar system is likely beneficial here.'' \\
+Evaluation: Acceptability: good; Inference: good; Relevance: excellent; Robustness: good. \\
+
+\textbf{Bad Example 1:} \\
+Utterance: ``I saw two sick people near the factory yesterday, so the factory must be causing all illnesses in this region.'' \\
+Evaluation: Acceptability: general; Inference: poor; Relevance: general; Robustness: poor. \\
+
+\textbf{Bad Example 2:} \\
+Utterance: ``Because a famous scientist once said this chemical is dangerous, we must ban it immediately.'' \\
+Evaluation: Acceptability: general; Inference: poor; Relevance: general; Robustness: poor.
+\end{tcolorbox}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Prompts for Methods in Logic \& Summarization Agent}
+\label{app:prompts_d}
+
+To ensure interpretability and reproducibility, we provide the prompt templates used for the three core reasoning components in the Logic \& Summarization Agent. 
+Each method plays a distinct role in transforming an opponent's argument into structured, symbolic, and interpretable reasoning signals. 
+While the detailed prompts are listed below, the same logic pipeline is consistently applied across all debate scenarios.
+
+
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Predicate Extraction (\(f_{\text{pred}}\))},
+  fonttitle=\bfseries,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+
+\small
+Role: You are a Symbolic Translator. \\
+Task: Read an opponent's debate statement and convert its major argumentative claims into pseudo-first-order logical predicates. \\
+
+Guidelines:
+- Identify central claims, causal/temporal relations, and quantitative assertions. 
+- Use compact predicate forms (Cause(A,B), Necessary(A,B), Supports(A,B), Increase(X,Value), Decrease(X,Value), Contrast(A,B), Negate(P)).
+- If numbers, percentages, or time periods appear, include them. 
+- Use consistent entity names 
+- Avoid rhetorical/filler content; only capture logical claims.
+- Output only predicates (one per line), not natural sentences. \\
+
+Prompt format:
+Here is the opponent's statement:
+\{[STATEMENT TEXT]\}
+
+Please output a set of pseudo-first-order predicates capturing the core argumentative logic.
+\end{tcolorbox}
+
+% === f_infer ===
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Reasoning Chain Construction (\(f_{\text{infer}}\))},
+  fonttitle=\bfseries,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\small
+Role: You are the Symbolic Chain-of-Thought Generator. \\
+Task: Take the predicate set extracted by $f_{pred}$ and generate a natural-language reasoning chain (\(\tau_{\mathrm{opp}}\)). \\
+
+Guidelines:
+- Read the predicate list and interpret relations (cause, support, contrast, contradiction).
+- Order them into a coherent reasoning narrative.
+- Explicitly mark where claims support or conflict.
+- Maintain neutrality (reconstruct opponent's logic, not rebuttal).
+- Do not add new evidence; only use given predicates. \\
+
+Prompt format:
+Here is the predicate set from the opponent:
+{ p1, p2, p3, … }
+
+Please produce a step-by-step reasoning narrative (\(\tau_{\mathrm{opp}}\)) in natural language that links these predicates, indicating support, causation, and possible contradictions.
+\end{tcolorbox}
+
+% === f_logic ===
+
+\begin{tcolorbox}[
+  colback=gray!5!white,
+  colframe=black!75!white,
+  title={Logical Flaw Detection (\(f_{\text{logic}}\))},
+  fonttitle=\bfseries,
+  breakable,
+  listing only,
+  listing options={breaklines=true, basicstyle=\ttfamily\small}
+]
+\small
+Role: You are the Logic Critic / Verifier. \\
+Task: Read the reasoning chain (\(\tau_{\mathrm{opp}}\)) generated by $f_{infer}$ and identify logical flaws or inconsistencies in nature language($\mathcal{L}$). \\
+
+Guidelines:
+- Detect contradictions, unsupported assumptions, circular reasoning, overgeneralization, temporal mismatches, or missing links. 
+- Each flaw is concise (1--3 sentences), in natural language. 
+- Reference relevant predicates or claims explicitly. 
+- Do not counterargue with new evidence; only report logical flaws. 
+- Output a list of flaw descriptions. \\
+
+Prompt format:
+Here is the reasoning chain from the opponent (\(\tau_{\mathrm{opp}}\)):
+<(\(\tau_{\mathrm{opp}}\)) text>
+
+Please identify all logical flaws or inconsistencies in the chain, and for each, output a natural-language description referencing the relevant claims.
+
+\end{tcolorbox}
+
+
+
+
+
+
+
+% ==================== START: Single-column, full-width, paginated form ====================
+% Works inside two-column templates: temporarily switch to one column.
+
+
+\clearpage
+\onecolumn
+\begingroup
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{6pt}
+\section{Example of Human Evaluation Form}
+\label{appendix:human}
+% ---- Title & Topic
+\textbf{Debate Topic:} Has globalization accelerated or slowed in the post-pandemic era?\\[1.0em]
+
+% ---- Background
+\textbf{Background.} You are invited to participate in a study on automatic debate generation. Each task provides (i) an incomplete debate context and (ii) four candidate debate statements generated by different systems. Your role is to evaluate these candidate statements according to the given criteria. All responses are anonymous and will only be used for research purposes.\\[0.8em]
+
+% ---- Context
+\textbf{Debate Context}\\[0.2em]
+\textbf{Pro.} The post-pandemic era refers to the period when the pandemic has largely subsided, with only occasional small outbreaks. Globalization refers to the strengthening of cross-border flows and the deepening of interdependence among nations. We argue that the post-pandemic era has accelerated globalization for three reasons.
+
+First, economic demand. The economic pressures amplified by the pandemic have forced companies to rely even more on the global division of labor and supply chains. For example, labor costs in the U.S. pharmaceutical industry are five times higher than in India, and American manufacturing costs are more than 30\% higher than in China. Withdrawing from globalization would dramatically increase costs. According to the Institute of International Finance, global corporate debt rose by \$5.4 trillion in 2020, and default rates reached their highest since the financial crisis. Under such debt pressure, rejoining global supply chains is inevitable. CPB monitoring data show that by November 2020, global trade had already returned to pre-pandemic levels, and in March 2021, international trade grew by 2.3\%. This rapid recovery is solid evidence that globalization has accelerated.\\[0.6em]
+
+\textbf{Con.} However, the pandemic has not propelled globalization forward; rather, it has disrupted it. The outbreak of COVID-19 nearly halted global economic interactions. Variants spread rapidly in the UK and Germany, while Australia and Malaysia returned to lockdowns. Such disruptions affected people’s lives and forced governments to reassess the impact of globalization.
+
+Data prove this trend: since 2019, global trade dependence has decreased by seven percentage points, whereas it had only decreased by four points over the entire twelve years preceding the pandemic. Foreign direct investment dropped by 38\% due to COVID-19 and remains 25\% below previous levels. Even in 2021, supposedly the “post-pandemic era,” indicators continue to decline.
+
+Nations are also adjusting their strategies. President Biden’s American Jobs Plan emphasizes rebuilding domestic supply chains and ensuring Americans “buy American.” China’s 14th Five-Year Plan stresses domestic circulation as the core. The pandemic exposed the fragility of over-reliance on global supply chains, prompting governments to turn inward. Moreover, public distrust has grown—polls show that 73\% of respondents believe China should be held responsible for the pandemic, which reduces willingness for international cooperation. Thus, globalization is slowing, not accelerating.\\[0.6em]
+
+\textbf{Pro.} The opposition emphasizes reshoring, but this cannot truly mitigate risk. If a domestic outbreak shuts down production, a purely national supply chain still collapses. Real “not putting all eggs in one basket” means having multiple global suppliers, enabled by digitalized supply chains. The pandemic accelerated digital globalization: big data and IoT allow firms to monitor supply and demand shifts, reduce costs, and optimize distribution. A U.S. Congressional report estimates digitalized supply chains can cut unit costs by 30--40\%.
+
+Cross-border e-commerce has also surged, deepening global ties. Meanwhile, reshoring imposes massive costs: rebuilding domestic factories and hiring domestic workers makes products more expensive, reducing competitiveness at a time when both companies and consumers are financially strained. Evidence supports this: once China controlled the pandemic in 2021, outbound investment rose 27.1\% compared to 2019. This proves that once risks are managed, firms quickly return to global markets. Thus, in terms of risk, cost, and post-pandemic data, globalization is accelerating.\\[0.6em]
+
+\textbf{Con.} Yet your example of China actually supports our view. China controlled the pandemic well, so its trade grew. But in countries like the UK, Europe, and India—where control failed—borders closed and trade declined. Overall, global trade is still down. The WTO predicts that even by 2022, trade volumes will remain below 2019 levels.
+
+You stress cross-border e-commerce, but this existed before COVID; the pandemic only temporarily amplified it. As for digital supply chains, they are still in their infancy, and there is no long-term evidence they can reverse the slowdown of globalization.
+
+More importantly, the pandemic revealed the necessity of reshoring critical industries. When masks were seized and vaccine production stalled, nations realized that so-called “risk diversification” meant leaving eggs in someone else’s basket. In contrast, reshoring ensures essential goods stay secure. That is why industrial reshoring policies—whether in healthcare, steel, or other strategic sectors—are rising worldwide. Globalization, therefore, is not accelerating but rather facing a cautious retreat.\\[0.8em]
+
+% ---- Candidates
+\textbf{Candidate 1}\\
+In the post-pandemic era, globalization has not slowed but accelerated due to multiple factors. First, the core driver of economic globalization—global division of labor and supply chain optimization—has become even more important after the pandemic. Companies face enormous cost pressures, and data show that in 2020 global corporate debt increased by \$5.4 trillion, with default rates at their highest since the financial crisis. This forces firms to rejoin global supply chains in the post-pandemic era to reduce costs. International trade recovered in 2021 and continues to grow. Second, the pandemic accelerated the digital economy, with digitalized supply chains tightening global networks. Cross-border e-commerce grew 53\% in Q2 2020, and in the first half of 2021, China’s cross-border e-commerce imports and exports rose 28.6\%. Digital globalization significantly reduced supply chain costs. Third, global risks such as pandemics and climate change demand closer cooperation among nations. The COVAX program’s successful implementation shows countries increasingly rely on globalization to address shared risks. Thus, economic, technological, and governance needs in the post-pandemic era jointly drive globalization forward.\\[0.6em]
+
+\textbf{Candidate 2}\\
+The post-pandemic era refers to the period when the pandemic has largely subsided. Globalization means the strengthening of cross-border flows and deepening interdependence among nations. We argue that the post-pandemic era accelerates globalization for three reasons. First, economic demand: pandemic-driven pressures force firms to remain globalized to reduce costs. Second, the digital economy has been accelerated, with digitalized supply chains tightening global networks and fostering cross-border e-commerce. Third, the need to cope with global risks makes countries part of a shared risk community, where global governance systems become key. Thus, globalization accelerates in the post-pandemic era.\\[0.6em]
+
+\textbf{Candidate 3}\\
+The post-pandemic era refers to the period when the pandemic has largely subsided with occasional outbreaks. Globalization means strengthening cross-border flows and interdependence. We argue that globalization has accelerated for three reasons. First, the core driver of globalization is cost reduction through global division of labor. Pandemic-driven cost pressures push firms to stay global. For example, U.S. pharmaceutical labor costs are five times those in India; withdrawing would sharply increase costs. By November 2020, global trade had recovered to pre-pandemic levels, and in March 2021, international trade grew 2.3\%, showing acceleration. Second, the pandemic accelerated the digital economy: digital globalization fosters efficient global data flows, with big data reducing production costs. Studies show digital supply chains can lower unit costs by 30--40\%. Cross-border e-commerce grew 53\% in 2020, and in 2021, China’s cross-border e-commerce trade rose 28.6\%, showing digital economy support for globalization. Third, shared risk management increases interdependence, as seen in WHO’s COVAX program, which highlights global cooperation. Thus, globalization is accelerating in the post-pandemic era.\\[0.6em]
+
+\textbf{Candidate 4}\\
+Thank you, Chair. The opposition tried to argue that pandemic-era trade declines and reshoring prove globalization slowed. But this reasoning is logically flawed. First, their evidence cherry-picks short-term pandemic data, ignoring long-term recovery. By March 2021, global trade grew 2.3\%, showing resilience. Second, the digital economy is not a temporary trend: the pandemic catalyzed its adoption, with cross-border e-commerce and IoT integration driving deeper globalization. Third, reshoring examples are isolated and economically unsustainable. Japan’s few reshored firms pale in comparison to the inflows of new foreign investment in China. Ultimately, globalization is driven by efficiency and cost optimization, which reshoring cannot overturn. Ultimately, global risks foster international cooperation, as evident in the sharing of vaccines through COVAX. Thus, globalization in the post-pandemic era is accelerating, not retreating.\\[1.0em]
+
+% ---- Criteria
+\textbf{Evaluation Criteria (1--10 each):} \textit{Emotional Appeal, Argument Clarity, Argument Arrangement, Topic Relevance, Fact Authenticity, Logical Validity}.\\[0.6em]
+
+% ---- Scoring tables (full-width, each on its own page if needed)
+\clearpage
+{\large \textbf{Scoring Table: Candidate 1}}\\[0.1em]
+
+% \hrule\vspace{0.6em}
+\begin{tabular}{lcccccccccc}
+\toprule
+\textbf{Dimension} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\midrule
+Emotional Appeal     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Argument Clarity     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Argument Arrangement & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Topic Relevance      & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Fact Authenticity    & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Logical Validity     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\bottomrule
+\end{tabular}
+\\[0.05em]
+
+{\large \textbf{Scoring Table: Candidate 2}}\\[0.2em]
+% \hrule\vspace{0.6em}
+\begin{tabular}{lcccccccccc}
+\toprule
+\textbf{Dimension} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\midrule
+Emotional Appeal     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Argument Clarity     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Argument Arrangement & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Topic Relevance      & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Fact Authenticity    & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Logical Validity     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\bottomrule
+\end{tabular}
+\\[0.05em]
+
+{\large \textbf{Scoring Table: Candidate 3}}\\[0.2em]
+% \hrule\vspace{0.6em}
+\begin{tabular}{lcccccccccc}
+\toprule
+\textbf{Dimension} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\midrule
+Emotional Appeal     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Argument Clarity     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Argument Arrangement & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Topic Relevance      & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Fact Authenticity    & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Logical Validity     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\bottomrule
+\end{tabular}
+\\[0.05em]
+
+{\large \textbf{Scoring Table: Candidate 4}}\\[0.2em]
+% \hrule\vspace{0.6em}
+\begin{tabular}{lcccccccccc}
+\toprule
+\textbf{Dimension} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+\midrule
+Emotional Appeal     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Argument Clarity     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Argument Arrangement & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Topic Relevance      & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Fact Authenticity    & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+Logical Validity     & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\bottomrule
+\end{tabular}
+\\[0.1em]
+
+{\large \textbf{Final Choice (pick one):}}\\[0.4em]
+Candidate 1 $\square$ \quad Candidate 2 $\square$ \quad Candidate 3 $\square$ \quad Candidate 4 $\square$
+
+\par\bigskip
+\endgroup
+
+% Return to the paper's original two-column layout if needed:
+\twocolumn
+\clearpage
+% ==================== END ====================
+
